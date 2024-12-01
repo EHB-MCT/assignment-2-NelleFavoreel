@@ -21,11 +21,9 @@
 	transition: color 0.3s ease;
 }
 #loading {
-	display: block;
 	text-align: center;
 }
 #content {
-	display: none;
 	text-align: center;
 }
 #content button {
@@ -33,15 +31,14 @@
 	margin-top: 20px;
 }
 #restart-button {
-	display: none;
 	margin-top: 20px;
 }
 #not-button {
 	border: none;
-	background-color: #f7f7f7;
+	background-color: #ffffff;
 }
 #underlined-button {
-	background-color: #f7f7f7;
+	background-color: #ffffff;
 	border-style: none;
 	border-bottom: solid 1px;
 }
@@ -55,7 +52,7 @@
 }
 #restart-button {
 	margin-top: 100vh;
-	background-color: #f7f7f7;
+	background-color: #ffffff;
 	border-color: #f7f7f7;
 	box-shadow: none;
 	border: none;
