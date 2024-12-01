@@ -6,9 +6,9 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+app.use(express.static("public"));
 // Poort instellen
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
 	console.log(`Server draait op http://localhost:${port}`);
 });

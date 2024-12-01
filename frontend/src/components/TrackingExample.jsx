@@ -58,18 +58,21 @@ const TrackingExample = () => {
 		logAction("restart", { reloadCount, reloadFirstClickTime, firstButtonClicked });
 
 		const dataToSend = {
-			reloadCount,
-			reloadFirstClickTime,
-			firstButtonClicked: firstButtonClicked || "",
-			reloadActions: logData.reloadActions,
-			buttonActions: logData.buttonActions,
+			action: "restart", // Zorg ervoor dat de actie wordt ingesteld
+			elapsedTime: (Date.now() - startTime) / 1000, // Bereken de verstreken tijd in seconden
+			timestamp: new Date().toISOString(), // Voeg de huidige tijdstempel toe
+			reloadCount, // Aantal herlaadacties
+			reloadFirstClickTime, // Tijd van de eerste klik op de herlaadknop
+			firstButtonClicked: firstButtonClicked || "", // Voorkom null waarden
+			reloadActions: logData.reloadActions, // Verzamel reload actiedetails
+			buttonActions: logData.buttonActions, // Verzamel knop actiedetails
 		};
 
 		console.log("Verstuurde data:", dataToSend);
 
 		// Eventueel data versturen naar een server
 		try {
-			const response = await fetch("http://localhost:3000/data", {
+			const response = await fetch("http://localhost:3001/data", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(dataToSend),
@@ -83,13 +86,14 @@ const TrackingExample = () => {
 			console.error("Fout:", error);
 		}
 
-		// Reset alles
-		setReloadCount(0);
-		setReloadFirstClickTime(null);
-		setFirstButtonClicked("");
-		setLogData({ reloadActions: [], buttonActions: [] });
-		setStartTime(Date.now());
-		setLoading(true);
+		// Reset alles met de setter functies van React
+		setReloadCount(0); // Reset de reload count
+		setReloadFirstClickTime(null); // Reset de tijd van de eerste klik op reload
+		setFirstButtonClicked(""); // Reset de eerste knop die geklikt is
+		setLogData({
+			reloadActions: [],
+			buttonActions: [],
+		});
 
 		setTimeout(() => setLoading(false), 10000); // Start opnieuw met laden
 	};
