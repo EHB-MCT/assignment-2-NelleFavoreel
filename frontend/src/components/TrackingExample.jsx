@@ -112,15 +112,17 @@ const TrackingExample = () => {
 			) : (
 				<div id="content">
 					<h2>Klik zo snel mogelijk op de button!</h2>
-					<button id="not-button" onClick={() => handleButtonClick("not-button")}>
-						Ergens
-					</button>
-					<button id="underlined-button" onClick={() => handleButtonClick("underlined-button")}>
-						is er
-					</button>
-					<button id="clear-button" onClick={() => handleButtonClick("clear-button")}>
-						een button
-					</button>
+					<div>
+						<button id="not-button" onClick={() => handleButtonClick("not-button")}>
+							Ergens
+						</button>
+						<button id="underlined-button" onClick={() => handleButtonClick("underlined-button")}>
+							is er
+						</button>
+						<button id="clear-button" onClick={() => handleButtonClick("clear-button")}>
+							een button
+						</button>
+					</div>
 					<button id="restart-button" onClick={restartProcess}>
 						Restart
 					</button>
