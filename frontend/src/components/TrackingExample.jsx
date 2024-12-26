@@ -55,6 +55,7 @@ const TrackingExample = () => {
 
 	// Proces opnieuw starten
 	const restartProcess = async () => {
+		setLoading(true);
 		logAction("restart", { reloadCount, reloadFirstClickTime, firstButtonClicked });
 
 		const dataToSend = {
