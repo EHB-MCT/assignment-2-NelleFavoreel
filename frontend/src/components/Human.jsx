@@ -1,7 +1,7 @@
 import { useInView, animated } from "@react-spring/web";
 import man from "../assests/images/man.jpg";
 
-function Prince() {
+function Human() {
 	// const [refSlideIn, slideIn] = useInView(() => ({
 	// 	from: {
 	// 		transform: "translateY(170%)",
@@ -22,4 +22,4 @@ function Prince() {
 		</div>
 	);
 }
-export default Prince;
+export default Human;
