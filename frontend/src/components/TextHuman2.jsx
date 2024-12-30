@@ -2,37 +2,39 @@ import React from "react";
 import { useInView, animated } from "@react-spring/web";
 
 function TextHuman2() {
-	// const [refSlideIn, slideIn] = useInView(
-	// 	() => ({
-	// 		from: {
-	// 			transform: "translateX(-90%)",
-	// 		},
-	// 		to: {
-	// 			transform: "translateX(0%)",
-	// 		},
-	// 		config: {
-	// 			tension: 10,
-	// 			friction: 10,
-	// 		},
-	// 	}),
-	// 	{
-	// 		once: true,
-	// 	}
-	// );
+	const [refSlideIn, slideIn] = useInView(
+		() => ({
+			from: {
+				transform: "translateX(100%)",
+				opacity: 0, // Start met onzichtbaarheid
+			},
+			to: {
+				transform: "translateX(40%)",
+				opacity: 1, // Ga naar volledige zichtbaarheid
+			},
+			config: {
+				tension: 10,
+				friction: 10,
+			},
+		}),
+		{
+			once: true, // Animatie gebeurt maar één keer
+		}
+	);
 
 	return (
 		<>
-			<div className="textHuman2">
-				{/* <animated.h1 ref={refSlideIn} style={slideIn}>
-				Prins valt in het water door de storm
-			</animated.h1> */}
-				<h1>Jef werd gefrustreerd vandaag...</h1>
-			</div>
-			<div className="textHuma2">
-				{/* <animated.h1 ref={refSlideIn} style={slideIn}>
-            Prins valt in het water door de storm
-        </animated.h1> */}
-				<h1>Hij moest werken voor school maar zijn pagina laade niet snel in...</h1>
+			<div>
+				<div className="textHuman2">
+					<animated.h1 ref={refSlideIn} style={slideIn}>
+						Jef werd gefrustreerd vandaag...
+					</animated.h1>
+				</div>
+				<div className="textHuman2">
+					<animated.h1 ref={refSlideIn} style={slideIn}>
+						Hij moest werken voor school maar zijn pagina laade niet snel in...
+					</animated.h1>
+				</div>
 			</div>
 		</>
 	);
