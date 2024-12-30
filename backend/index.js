@@ -172,3 +172,7 @@ app.get("/percentage-clear-button", async (req, res) => {
 		res.status(500).send("Fout bij het ophalen van het percentage.");
 	}
 });
+// Route voor percentage ophalen
+app.get("/percentage-buttons", (req, res) => {
+	res.json(buttonClicks); // Geeft de mock data in JSON formaat terug
+});
