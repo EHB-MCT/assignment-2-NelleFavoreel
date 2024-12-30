@@ -32,3 +32,25 @@
 	margin: 150px;
 	text-align: center;
 }
+.brain {
+	width: 50%;
+	height: 50%;
+	margin-top: 30px;
+}
+.explenationText3 {
+	color: white;
+	width: 40%;
+}
+.brainContent {
+	display: flex;
+	padding-top: 20%;
+}
+.EndText {
+	color: white;
+	width: 700px;
+	margin-top: 300px;
+	margin-left: 100px;
+}
+.EndText h1 {
+	font-weight: 100;
+}

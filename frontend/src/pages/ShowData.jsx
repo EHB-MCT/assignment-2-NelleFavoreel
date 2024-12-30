@@ -9,6 +9,7 @@ import ExplenationText3 from "../components/ExplenationText3";
 import EndText from "../components/EndText";
 import "../modules/StylingShowdata.css";
 import man2 from "../assests/images/man2.png";
+import brainGif from "../assests/videos/brain.gif";
 
 function ShowData() {
 	return (
@@ -30,13 +31,19 @@ function ShowData() {
 			<ParallaxLayer offset={2.4} speed={1}>
 				<ExplenationText></ExplenationText>
 			</ParallaxLayer>
-			<ParallaxLayer offset={3} speed={1}>
+			<ParallaxLayer offset={2.8} speed={1}>
 				<ExplenationText2></ExplenationText2>
 			</ParallaxLayer>
-			<ParallaxLayer offset={4} speed={1}>
-				<ExplenationText3></ExplenationText3>
+			<ParallaxLayer
+				offset={4}
+				className="brainContent"
+				speed={0}
+				style={{ backgroundColor: "black" }} // Correcte JavaScript-syntaxis voor objecten
+			>
+				<img src={brainGif} className="brain" alt="Brain Animation" />
+				<ExplenationText3 />
 			</ParallaxLayer>
-			<ParallaxLayer offset={5} speed={0}>
+			<ParallaxLayer offset={5} speed={0} style={{ backgroundColor: "black" }}>
 				<EndText></EndText>
 			</ParallaxLayer>
 		</Parallax>
