@@ -178,15 +178,19 @@ app.get("/percentage-buttons", async (req, res) => {
 		const database = client.db("Dev5");
 		const collection = database.collection("UserActions");
 
-		// Tel het aantal keren dat elke knop is ingedrukt (assuming firstButtonClicked bevat de knopwaarde)
+		// Tel het aantal keren dat elke knop is ingedrukt
 		const clearButtonCount = await collection.countDocuments({ firstButtonClicked: "clear-button" });
 		const underlinedButtonCount = await collection.countDocuments({ firstButtonClicked: "underlined-button" });
-		const otherButtonCount = await collection.countDocuments({ firstButtonClicked: { $ne: "clear-button", $ne: "underlined-button" } });
 
-		// Haal het totaal aantal gebruikers op
+		// Tel het aantal keren dat een andere knop is ingedrukt, exclusief clear-button en underlined-button
+		const otherButtonCount = await collection.countDocuments({
+			firstButtonClicked: { $nin: ["clear-button", "underlined-button"] },
+		});
+
+		// Haal het totaal aantal gebruikers op (je hoeft dit niet altijd te doen, je kunt het ook berekenen uit de data)
 		const totalUsersCount = await collection.countDocuments();
 
-		// Creëer de button gegevens object
+		// Creëer het button klik object
 		const buttonClicks = {
 			"clear-button": clearButtonCount,
 			"underlined-button": underlinedButtonCount,
@@ -195,7 +199,8 @@ app.get("/percentage-buttons", async (req, res) => {
 
 		console.log("Aantal klikken per knop:", buttonClicks); // Dit logt het aantal klikken per knop
 
-		res.json(buttonClicks); // Stuur het object met klikken terug als JSON
+		// Stuur het object met klikken terug als JSON
+		res.json(buttonClicks);
 	} catch (err) {
 		console.error("Fout bij het ophalen van percentage-buttons:", err);
 		res.status(500).send("Er is een fout opgetreden.");
