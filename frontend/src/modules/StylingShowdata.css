@@ -54,3 +54,20 @@
 .EndText h1 {
 	font-weight: 100;
 }
+.EndText {
+	display: flex; /* Zet de container in flexbox-layout */
+	justify-content: space-between; /* Zorg ervoor dat er ruimte tussen de items is */
+	align-items: flex-start; /* Zorg ervoor dat de items bovenaan uitgelijnd zijn */
+	gap: 20px; /* Ruimte tussen de tekst en de diagram */
+}
+
+.textContainer {
+	max-width: 50%; /* Maximaal 50% van de breedte van de container */
+}
+
+.chartContainer {
+	max-width: 40%; /* Maximaal 50% van de breedte van de container */
+	display: flex; /* Dit zorgt ervoor dat het diagram correct wordt gecentreerd */
+	justify-content: center; /* Centreert het diagram horizontaal */
+	align-items: center; /* Centreert het diagram verticaal */
+}
