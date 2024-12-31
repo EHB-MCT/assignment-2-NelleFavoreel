@@ -48,8 +48,24 @@ function ExplenationText2() {
 				<h1>{error}</h1> // Als er een fout is, tonen we die in plaats van de data
 			) : (
 				<>
-					<h1>{reloadPercentage !== null ? `${reloadPercentage}% van de mensen herladen de pagina binnen de 5 seconden` : "Laden..."}</h1>
-					<h1>{averageReloads !== null ? `${averageReloads} keer is het gemiddelde aantal herlaadacties in 10 seconden` : "Laden..."}</h1>
+					<h1>
+						{reloadPercentage !== null ? (
+							<>
+								<span style={{ fontWeight: "bold" }}>{reloadPercentage}%</span> van de mensen herladen de pagina binnen de 5 seconden
+							</>
+						) : (
+							"Laden..."
+						)}
+					</h1>
+					<h1>
+						{averageReloads !== null ? (
+							<>
+								<span style={{ fontWeight: "bold" }}>{averageReloads}</span> keer is het gemiddelde aantal herlaadacties in 10 seconden
+							</>
+						) : (
+							"Laden..."
+						)}
+					</h1>
 				</>
 			)}
 		</div>

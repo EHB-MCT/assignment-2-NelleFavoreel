@@ -35,6 +35,11 @@ function TextHuman2() {
 						Hij moest werken voor school maar zijn pagina laade niet snel in...
 					</animated.h1>
 				</div>
+				<div className="textHuman2">
+					<animated.h1 ref={refSlideIn} style={slideIn}>
+						Waardoor hij niet snel kon werken en vaak de pagina moest herladen.
+					</animated.h1>
+				</div>
 			</div>
 		</>
 	);

@@ -39,7 +39,9 @@ function ExplenationText() {
 			{/* <animated.h1 ref={refSlideIn} style={slideIn}>
 				Dat is normaal {reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."} van de mensen herlaadt de pagina snel
 			</animated.h1> */}
-			<h1>Dat is normaal {reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."} van de mensen herlaadt de pagina snel</h1>
+			<h1>
+				Dat is normaal <span> {reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."} </span> van de mensen herlaadt de pagina snel
+			</h1>
 		</div>
 	);
 }
