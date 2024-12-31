@@ -47,27 +47,43 @@
 }
 .EndText {
 	color: white;
-	width: 700px;
-	margin-top: 300px;
-	margin-left: 100px;
+	width: auto;
+	margin-top: 100px;
+	margin-left: 10%;
+	margin-right: 10%;
+	display: flex;
+	align-items: center;
 }
 .EndText h1 {
 	font-weight: 100;
 }
-.EndText {
-	display: flex; /* Zet de container in flexbox-layout */
-	justify-content: space-between; /* Zorg ervoor dat er ruimte tussen de items is */
-	align-items: flex-start; /* Zorg ervoor dat de items bovenaan uitgelijnd zijn */
-	gap: 20px; /* Ruimte tussen de tekst en de diagram */
+.chartContainer canvas {
+	width: 100%; /* Chart past zich aan containerbreedte aan */
+	max-width: 600px; /* Max breedte om de chart niet te groot te maken */
+	height: auto; /* Proportionele hoogte */
 }
 
 .textContainer {
-	max-width: 50%; /* Maximaal 50% van de breedte van de container */
+	max-width: 40%; /* Maximaal 50% van de containerbreedte */
 }
 
 .chartContainer {
-	max-width: 40%; /* Maximaal 50% van de breedte van de container */
-	display: flex; /* Dit zorgt ervoor dat het diagram correct wordt gecentreerd */
-	justify-content: center; /* Centreert het diagram horizontaal */
-	align-items: center; /* Centreert het diagram verticaal */
+	flex: 1; /* ChartContainer neemt resterende ruimte */
+	display: flex; /* Voor centreren van het chart binnen de container */
+	justify-content: center; /* Horizontaal centreren */
+	align-items: center; /* Verticaal centreren */
+	border-radius: 10px; /* Ronde hoeken */
+	padding: 20px; /* Padding rond het chart */
+	transition: background-color 0.3s ease; /* Soepele overgang van kleuren */
+}
+
+.chartContainer canvas {
+	max-width: 100%; /* Chart schaalt mee met de breedte van de container */
+	height: auto; /* Hoogte past zich proportioneel aan */
+}
+
+.explenationText3 li {
+	list-style-type: none;
+	margin-top: 20px;
+	font-weight: 200;
 }

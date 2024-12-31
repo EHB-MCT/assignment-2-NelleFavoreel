@@ -1,45 +1,35 @@
 import React, { useEffect, useState } from "react";
+// Gebruik van 'useInView' en 'animated' voor animaties (momenteel niet gebruikt in de component, maar mogelijk toegevoegd in toekomstige functies)
 import { useInView, animated } from "@react-spring/web";
 
 function ExplenationText() {
-	const [reloadPercentage, setReloadPercentage] = useState(null);
+	// Stap 1: State voor het opslaan van de percentage-gegevens
+	const [reloadPercentage, setReloadPercentage] = useState(null); // Initieel wordt de percentage-instelling op null gezet
+
+	// Stap 2: Gebruik van useEffect om de percentage-informatie eenmalig op te halen van de server
 	useEffect(() => {
+		// Haal de gegevens van de backend die het herlaadpercentage bevatten
 		fetch("http://localhost:3001/reload-percentage")
-			.then((response) => response.json())
+			.then((response) => response.json()) // Zet het antwoord van de API om in JSON
 			.then((data) => {
-				setReloadPercentage(data.percentage);
+				// Stap 3: Zet de opgehaalde percentage op in de state
+				setReloadPercentage(data.percentage); // Bewaar de percentage-waarde in de state 'reloadPercentage'
 			})
 			.catch((error) => {
-				console.error("Error fetching reload percentage:", error);
+				// Foutafhandeling: als er iets misgaat bij het ophalen van de data
+				console.error("Error fetching reload percentage:", error); // Toon een foutmelding in de console
 			});
-	}, []);
-	// // Animatie-instellingen (van beneden naar boven)
-	// const [refSlideIn, slideIn] = useInView(
-	// 	() => ({
-	// 		from: {
-	// 			transform: "translateY(100%)", // Startpositie: onderaan
-	// 			opacity: 0, // Start met onzichtbaar
-	// 		},
-	// 		to: {
-	// 			transform: "translateY(0%)", // Eindpositie: op zijn plek
-	// 			opacity: 1, // Volledig zichtbaar
-	// 		},
-	// 		config: {
-	// 			tension: 10,
-	// 			friction: 10,
-	// 		},
-	// 	}),
-	// 	{
-	// 		once: true, // Animatie gebeurt slechts eenmaal
-	// 	}
-	// );
+	}, []); // De lege array betekent dat de fetch alleen wordt uitgevoerd bij de eerste rendering (zoals componentDidMount)
 
 	return (
 		<div className="explenationText">
-			{/* <animated.h1 ref={refSlideIn} style={slideIn}>
-				Dat is normaal {reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."} van de mensen herlaadt de pagina snel
-			</animated.h1> */}
-			<h1>Dat is normaal {reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."} van de mensen herlaadt de pagina snel</h1>
+			{/* Stap 4: Renderen van de inhoud */}
+			<h1>
+				Dat is normaal{" "}
+				{/* De waarde van de percentage wordt hier weergegeven. 
+            Als de data nog niet is geladen, wordt "laden..." getoond. */}
+				<span>{reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."}</span> van de mensen herlaadt de pagina snel
+			</h1>
 		</div>
 	);
 }
