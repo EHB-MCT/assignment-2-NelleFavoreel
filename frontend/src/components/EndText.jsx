@@ -26,8 +26,10 @@ function EndText() {
 					{
 						label: "Percentage van gebruikers",
 						data: [(buttonData["clear-button"] / totalClicks) * 100, (buttonData["underlined-button"] / totalClicks) * 100, (buttonData["other"] / totalClicks) * 100],
-						backgroundColor: ["#36A2EB", "#FF6384", "#FFCE56"],
-						hoverBackgroundColor: ["#36A2EB", "#FF6384", "#FFCE56"],
+						backgroundColor: ["#bfcaff", "#750094", "#005e9f"],
+						hoverBackgroundColor: ["#bfcaff", "#750094", "#005e9f"],
+						borderColor: "transparent", // Verwijder de borderkleur
+						borderWidth: 0, // Verwijder de border breedte
 					},
 				],
 		  }
@@ -36,14 +38,22 @@ function EndText() {
 	return (
 		<div className="EndText">
 			<div className="textContainer">
-				<h1>
-					{buttonData !== null
-						? `Uit de test bleek dat:
-					  ${Math.round((buttonData["clear-button"] / totalClicks) * 100)}% koos de "Clear Button",
-					  ${Math.round((buttonData["underlined-button"] / totalClicks) * 100)}% koos de "Underlined Button" 
-					  en ${Math.round((buttonData["other"] / totalClicks) * 100)}% koos een andere optie.`
-						: "Laden..."}
-				</h1>
+				<h3>
+					Uit de test bleek ook dat mensen gewoontedieren zijn en sterk geneigd zijn te klikken op elementen die ze kennen en herkennen. Uit de resultaten kwam naar voren dat meer dan de helft van de deelnemers voor de echte knop koos. <br />
+					<br />
+					{buttonData !== null ? (
+						<>
+							Uit de test bleek dat:
+							<span className="percentage">{Math.round((buttonData["clear-button"] / totalClicks) * 100)}%</span> koos de juiste button,
+							<span className="percentage">{Math.round((buttonData["underlined-button"] / totalClicks) * 100)}%</span> koos de onderlijnde button en <span className="percentage">{Math.round((buttonData["other"] / totalClicks) * 100)}%</span> koos een
+							andere optie.
+						</>
+					) : (
+						"Laden..."
+					)}{" "}
+					<br /> <br />
+					Het is daarom essentieel om een goed werkende en duidelijke website te creëren, omdat mensen vaak gewoontedieren zijn en snel gefrustreerd kunnen raken.
+				</h3>
 			</div>
 			<div className="chartContainer">{chartData ? <Pie data={chartData} /> : "Laden..."}</div>
 		</div>
