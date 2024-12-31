@@ -13,13 +13,16 @@ function ExplenationText() {
 				console.error("Error fetching reload percentage:", error);
 			});
 	}, []);
+	// // Animatie-instellingen (van beneden naar boven)
 	// const [refSlideIn, slideIn] = useInView(
 	// 	() => ({
 	// 		from: {
-	// 			transform: "translateX(-90%)",
+	// 			transform: "translateY(100%)", // Startpositie: onderaan
+	// 			opacity: 0, // Start met onzichtbaar
 	// 		},
 	// 		to: {
-	// 			transform: "translateX(0%)",
+	// 			transform: "translateY(0%)", // Eindpositie: op zijn plek
+	// 			opacity: 1, // Volledig zichtbaar
 	// 		},
 	// 		config: {
 	// 			tension: 10,
@@ -27,16 +30,16 @@ function ExplenationText() {
 	// 		},
 	// 	}),
 	// 	{
-	// 		once: true,
+	// 		once: true, // Animatie gebeurt slechts eenmaal
 	// 	}
 	// );
 
 	return (
 		<div className="explenationText">
 			{/* <animated.h1 ref={refSlideIn} style={slideIn}>
-				Prins valt in het water door de storm
+				Dat is normaal {reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."} van de mensen herlaadt de pagina snel
 			</animated.h1> */}
-			<h1>Dat is normaal {reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."} van de mensen herlaad de pagina snel</h1>
+			<h1>Dat is normaal {reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."} van de mensen herlaadt de pagina snel</h1>
 		</div>
 	);
 }

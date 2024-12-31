@@ -172,3 +172,32 @@ app.get("/percentage-clear-button", async (req, res) => {
 		res.status(500).send("Fout bij het ophalen van het percentage.");
 	}
 });
+// Route voor percentage ophalen
+app.get("/percentage-buttons", async (req, res) => {
+	try {
+		const database = client.db("Dev5");
+		const collection = database.collection("UserActions");
+
+		// Tel het aantal keren dat elke knop is ingedrukt (assuming firstButtonClicked bevat de knopwaarde)
+		const clearButtonCount = await collection.countDocuments({ firstButtonClicked: "clear-button" });
+		const underlinedButtonCount = await collection.countDocuments({ firstButtonClicked: "underlined-button" });
+		const otherButtonCount = await collection.countDocuments({ firstButtonClicked: { $ne: "clear-button", $ne: "underlined-button" } });
+
+		// Haal het totaal aantal gebruikers op
+		const totalUsersCount = await collection.countDocuments();
+
+		// Creëer de button gegevens object
+		const buttonClicks = {
+			"clear-button": clearButtonCount,
+			"underlined-button": underlinedButtonCount,
+			other: otherButtonCount,
+		};
+
+		console.log("Aantal klikken per knop:", buttonClicks); // Dit logt het aantal klikken per knop
+
+		res.json(buttonClicks); // Stuur het object met klikken terug als JSON
+	} catch (err) {
+		console.error("Fout bij het ophalen van percentage-buttons:", err);
+		res.status(500).send("Er is een fout opgetreden.");
+	}
+});

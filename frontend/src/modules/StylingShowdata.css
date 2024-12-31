@@ -1,0 +1,73 @@
+.man {
+	height: 800px;
+}
+.manContent {
+	justify-content: space-around;
+	display: flex;
+	align-items: center;
+	z-index: 10;
+}
+.textHuman {
+	margin-top: 15%;
+}
+.textHuman h1 {
+	font-size: 50px;
+}
+.textHuman2 h1 {
+	width: 60%;
+}
+.manPicture {
+	width: 900px;
+}
+.workingMan {
+	display: flex;
+	align-items: center;
+}
+.explenationText {
+	height: 100%;
+}
+.explenationText h1,
+.explenationText2 h1 {
+	font-size: 70px;
+	margin: 150px;
+	text-align: center;
+}
+.brain {
+	width: 50%;
+	height: 50%;
+	margin-top: 30px;
+}
+.explenationText3 {
+	color: white;
+	width: 40%;
+}
+.brainContent {
+	display: flex;
+	padding-top: 20%;
+}
+.EndText {
+	color: white;
+	width: 700px;
+	margin-top: 300px;
+	margin-left: 100px;
+}
+.EndText h1 {
+	font-weight: 100;
+}
+.EndText {
+	display: flex; /* Zet de container in flexbox-layout */
+	justify-content: space-between; /* Zorg ervoor dat er ruimte tussen de items is */
+	align-items: flex-start; /* Zorg ervoor dat de items bovenaan uitgelijnd zijn */
+	gap: 20px; /* Ruimte tussen de tekst en de diagram */
+}
+
+.textContainer {
+	max-width: 50%; /* Maximaal 50% van de breedte van de container */
+}
+
+.chartContainer {
+	max-width: 40%; /* Maximaal 50% van de breedte van de container */
+	display: flex; /* Dit zorgt ervoor dat het diagram correct wordt gecentreerd */
+	justify-content: center; /* Centreert het diagram horizontaal */
+	align-items: center; /* Centreert het diagram verticaal */
+}
