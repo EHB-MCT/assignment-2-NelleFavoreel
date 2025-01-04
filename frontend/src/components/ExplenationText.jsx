@@ -25,7 +25,7 @@ function ExplenationText() {
 		<div className="explenationText">
 			{/* Stap 4: Renderen van de inhoud */}
 			<h1>
-				Dat is normaal{" "}
+				{" "}
 				{/* De waarde van de percentage wordt hier weergegeven. 
             Als de data nog niet is geladen, wordt "laden..." getoond. */}
 				<span>{reloadPercentage !== null ? `${reloadPercentage}%` : "laden..."}</span> van de mensen herlaadt de pagina snel
